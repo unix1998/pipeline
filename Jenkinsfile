@@ -5,19 +5,19 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                date
+                sh 'date'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                date
+                sh 'date'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                date
+                sh 'date'
             }
         }
     }
