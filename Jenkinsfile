@@ -19,6 +19,7 @@ pipeline {
                 echo 'Deploying....'
                 sh 'date'
                 sh 'oc --help'
+                sh 'date '
             }
         }
     }
