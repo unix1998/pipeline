@@ -1,9 +1,40 @@
 @Library('jenkins-pipeline-shared-lib-sample') _
-SampleDSL{
-  [
-    HW = "Hello World! first line. ",
-    P1 = "This is Para1 value , test of 2020 ",
-    Custom = "this line can be anything "
-  ]
+import java.text.SimpleDateFormat
+import groovy.io.FileType
+node('master') {
+stage (" stage 1.0: list system variable") {
+sh '''
+echo "BUILD_NUMBER" :: $BUILD_NUMBER
+echo "BUILD_ID" :: $BUILD_ID
+echo "BUILD_DISPLAY_NAME" :: $BUILD_DISPLAY_NAME
+echo "JOB_NAME" :: $JOB_NAME
+echo "JOB_BASE_NAME" :: $JOB_BASE_NAME
+echo "BUILD_TAG" :: $BUILD_TAG
+echo "EXECUTOR_NUMBER" :: $EXECUTOR_NUMBER
+echo "NODE_NAME" :: $NODE_NAME
+echo "NODE_LABELS" :: $NODE_LABELS
+echo "WORKSPACE" :: $WORKSPACE
+echo "JENKINS_HOME" :: $JENKINS_HOME
+echo "JENKINS_URL" :: $JENKINS_URL
+echo "BUILD_URL" ::$BUILD_URL
+echo "JOB_URL" :: $JOB_URL
+echo "JOB_URL" :: $JOB_URL
+
+'''
 
 }
+stage (" stage 2.0 : more paramters") {
+sh '''
+echo "GIT_COMMIT" :: $GIT_COMMIT 
+echo "GIT_BRANCH"  ::$GIT_BRANCH 
+echo "GIT_LOCAL_BRANCH" ::$GIT_LOCAL_BRANCH
+echo "GIT_PREVIOUS_COMMIT " :: $GIT_PREVIOUS_COMMIT
+echo "GIT_PREVIOUS_SUCCESSFUL_COMMIT " :: $GIT_PREVIOUS_SUCCESSFUL_COMMIT
+echo "GIT_PREVIOUS_SUCCESSFUL_COMMIT " :: $GIT_PREVIOUS_SUCCESSFUL_COMMIT
+echo "GIT_PREVIOUS_SUCCESSFUL_COMMIT " :: $GIT_PREVIOUS_SUCCESSFUL_COMMIT
+echo "GIT_URL " :: $GIT_URL
+echo "GIT_AUTHOR_NAME " :: $GIT_AUTHOR_NAME
+echo "GIT_COMMITTER_EMAIL" :: $ GIT_COMMITTER_EMAIL
+'''
+}
+} 
