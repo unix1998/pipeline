@@ -23,7 +23,7 @@ echo "JOB_URL" :: $JOB_URL
 
 '''
 sayHello("my world is great, thanks")
-
+math1.add(100,700)
 }
 stage (" stage 2.0 : more paramters") {
 sh '''
