@@ -1,7 +1,8 @@
 @Library('jenkins-pipeline-shared-lib-sample') _
 import java.text.SimpleDateFormat
 import groovy.io.FileType
-node('master') {
+//node('master') {
+node { 
 stage (" stage 1.0: list system variable") {
 sh '''
 echo "BUILD_NUMBER" :: $BUILD_NUMBER
