@@ -23,6 +23,7 @@ pipeline {
             steps {
                 echo 'Building...and testing mnethod '
                 // Add your build steps here
+                script
                 {
                sayHello("my world is great, thanks")
                math1.add(100,700)
