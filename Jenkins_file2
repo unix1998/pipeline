@@ -21,8 +21,11 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo 'Building...and testing mnethod '
                 // Add your build steps here
+               sayHello("my world is great, thanks")
+               math1.add(100,700)
+                
             }
         }
         stage('Test') {
