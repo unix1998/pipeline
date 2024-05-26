@@ -1,9 +1,12 @@
 @Library('jenkins-pipeline-shared-lib-sample') _
-SampleDSL{
-  [
-    HW = "Hello World! first line. ",
-    P1 = "This is Para1 value , test of 2020 ",
-    Custom = "this line can be anything "
-  ]
-
+node {
+  stage('SCM') {
+    git 'https://github.com/unix1998/pipeline.git'
+  }
+  stage('SonarQube analysis') {
+    def scannerHome = tool 'SonarQube_5';
+    withSonarQubeEnv('Sonar_server') { // If you have configured more than one global server connection, you can specify its name
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
 }
