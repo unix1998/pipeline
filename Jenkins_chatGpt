@@ -1,0 +1,42 @@
+//@Library('jenkins-shared-library') _
+@Library('jenkins-pipeline-shared-lib-sample') _
+pipeline {
+    agent any
+
+    stages {
+        stage('SampleDSL') {
+            steps {
+                script {
+                    SampleDSL {
+                        HW = "Hello World! first line."
+                        P1 = "This is Para1 value, test of 2020"
+                        Custom = "this line can be anything"
+                    }
+                }
+            }
+        }
+
+        stage('WebServerDSL') {
+            steps {
+                script {
+                    webServer {
+                        name 'MyTestServer'
+                        port 8080
+
+                        route {
+                            method = 'GET'
+                            path = '/hello'
+                            handler = 'helloHandler'
+                        }
+
+                        route {
+                            method = 'POST'
+                            path = '/submit'
+                            handler = 'submitHandler'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
